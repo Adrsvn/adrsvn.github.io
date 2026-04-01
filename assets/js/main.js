@@ -1,5 +1,10 @@
 (function ($) {
 const STORAGE_KEY = "adrsvn-theme";
+const LIGHTBOX_STATE = {
+    gallery: [],
+    index: 0,
+    title: "",
+};
 
 const ROLES = [
     "building production-ready web apps",
@@ -423,6 +428,86 @@ function updateProjectCarousel($carousel, nextIndex) {
     );
 }
 
+function getLightboxGallery($media) {
+    const $carousel = $media.find(".project-card__media-carousel");
+
+    if ($carousel.length) {
+        return {
+            gallery: $.map(
+                $carousel.find(".project-card__media-slide img"),
+                (image) => ({
+                    src: image.getAttribute("src"),
+                    alt: image.getAttribute("alt") || "Project screenshot",
+                })
+            ),
+            index: Number($carousel.attr("data-slide-index")) || 0,
+        };
+    }
+
+    const $image = $media.children("img").first();
+
+    return {
+        gallery: [
+            {
+                src: $image.attr("src"),
+                alt: $image.attr("alt") || "Project screenshot",
+            },
+        ],
+        index: 0,
+    };
+}
+
+function syncProjectLightbox() {
+    const $lightbox = $("#project-lightbox");
+    const total = LIGHTBOX_STATE.gallery.length;
+    const image = LIGHTBOX_STATE.gallery[LIGHTBOX_STATE.index];
+    const hasMultiple = total > 1;
+
+    if (!image) {
+        return;
+    }
+
+    $lightbox.find(".project-lightbox__image").attr({
+        src: image.src,
+        alt: image.alt,
+    });
+    $lightbox.find(".project-lightbox__title").text(LIGHTBOX_STATE.title);
+    $lightbox.find(".project-lightbox__counter-current").text(
+        LIGHTBOX_STATE.index + 1
+    );
+    $lightbox.find(".project-lightbox__counter-total").text(total);
+    $lightbox.find(".project-lightbox__counter, .project-lightbox__nav")
+        .toggle(hasMultiple);
+}
+
+function openProjectLightbox(gallery, index, title) {
+    LIGHTBOX_STATE.gallery = gallery;
+    LIGHTBOX_STATE.index = index;
+    LIGHTBOX_STATE.title = title || "Project screenshot";
+
+    syncProjectLightbox();
+
+    $("body").addClass("lightbox-open");
+    $("#project-lightbox").addClass("is-open").attr("aria-hidden", "false");
+    $("#project-lightbox .project-lightbox__close").trigger("focus");
+}
+
+function closeProjectLightbox() {
+    $("body").removeClass("lightbox-open");
+    $("#project-lightbox").removeClass("is-open").attr("aria-hidden", "true");
+}
+
+function stepProjectLightbox(direction) {
+    const total = LIGHTBOX_STATE.gallery.length;
+
+    if (total <= 1) {
+        return;
+    }
+
+    LIGHTBOX_STATE.index = (LIGHTBOX_STATE.index + direction + total) % total;
+    syncProjectLightbox();
+}
+
 function renderSkills() {
     const markup = $.map(SKILLS, (skill) => {
         const media = skill.image
@@ -572,19 +657,56 @@ $(function onReady() {
     });
 
     $(".mobile-scrim, .mobile-nav__link").on("click", closeMenu);
-    $(document).on("click", ".project-card__media-nav", function onCarouselNav() {
+    $(document).on("click", ".project-card__media-nav", function onCarouselNav(event) {
         const $button = $(this);
         const $carousel = $button.closest(".project-card__media-carousel");
         const currentIndex = Number($carousel.attr("data-slide-index")) || 0;
         const direction = $button.data("direction") === "next" ? 1 : -1;
 
+        event.preventDefault();
+        event.stopPropagation();
+        $button.trigger("blur");
         updateProjectCarousel($carousel, currentIndex + direction);
+    });
+    $(document).on("click", ".project-card__media img", function onProjectImageClick(event) {
+        const $image = $(this);
+        const $media = $image.closest(".project-card__media");
+        const title = $image.closest(".project-card").find(".project-card__title").text();
+        const { gallery, index } = getLightboxGallery($media);
+
+        event.preventDefault();
+        openProjectLightbox(gallery, index, title);
+    });
+    $(".project-lightbox__scrim, .project-lightbox__close").on(
+        "click",
+        closeProjectLightbox
+    );
+    $(".project-lightbox__nav").on("click", function onLightboxNavClick() {
+        const direction = $(this).data("direction") === "next" ? 1 : -1;
+        stepProjectLightbox(direction);
     });
     $('.site-nav__link[href^="#"], .mobile-nav__link[href^="#"]').on(
         "click",
         updateActiveLinks
     );
 
+    $(document).on("keydown", function onDocumentKeyDown(event) {
+        if (!$("#project-lightbox").hasClass("is-open")) {
+            return;
+        }
+
+        if (event.key === "Escape") {
+            closeProjectLightbox();
+        }
+
+        if (event.key === "ArrowLeft") {
+            stepProjectLightbox(-1);
+        }
+
+        if (event.key === "ArrowRight") {
+            stepProjectLightbox(1);
+        }
+    });
     $(window).on("scroll", updateActiveLinks);
     $(window).on("resize", () => {
         if ($(window).width() > 720) {
