@@ -1012,7 +1012,7 @@ body.menu-open .mobile-scrim {
 .project-card__media img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: var(--project-image-fit, cover);
 }
 
 .project-card__body {

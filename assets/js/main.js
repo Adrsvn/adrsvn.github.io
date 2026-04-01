@@ -84,6 +84,7 @@ const FEATURED_PROJECTS = [
         ],
         highlightMeta: "Developed in 2026",
         image: "assets/media/ssklinikcompro.png",
+        imageFit: "fill",
         link: null,
         cta: "Preview Soon",
         note: "Included SEO-ready public pages, reservation lead capture, email notifications, and a preview-password gate before public release. Public preview will be added later.",
@@ -108,6 +109,7 @@ const FEATURED_PROJECTS = [
         ],
         highlightMeta: "Developed in 2026",
         image: "assets/media/ssklinikcms.png",
+        imageFit: "fill",
         link: null,
         cta: "Preview Soon",
         note: "Included Google OAuth login with internal user validation, Turnstile-protected credential login, and Admin or Editor role-based access. Public preview will be added later.",
@@ -116,6 +118,68 @@ const FEATURED_PROJECTS = [
 ];
 
 const EARLIER_PROJECTS = [
+    {
+        title: "Bareng Bareng",
+        description:
+            "A marketplace with buyer, seller, and admin roles. Sellers can run interest checks before products move into group buy status, while the backend handles requests, role flow, and withdrawals.",
+        tags: ["HTML", "CSS", "Laravel", "Tailwind", "jQuery"],
+        image: "assets/media/barengpreview.png",
+        link: "https://youtu.be/RYjCuR-2iZ4",
+        cta: "See Preview",
+        accent: "#2563eb",
+    },
+    {
+        title: "Rekreasi",
+        description:
+            "A responsive travel landing page that highlights destinations, estimated costs, and summaries. The original build also included login and register flows connected to a backend for future reviews.",
+        tags: ["HTML", "CSS", "PHP", "Tailwind", "jQuery"],
+        image: "assets/media/rekreasipreview.png",
+        link: "https://youtu.be/E3eXU53NFEE",
+        cta: "See Preview",
+        accent: "#38bdf8",
+    },
+    {
+        title: "Ledoyen",
+        description:
+            "A responsive restaurant website where visitors can explore the brand, see featured cuisine, browse events, and book tables with email notifications for both the customer and admin.",
+        tags: ["HTML", "CSS", "PHP", "Bootstrap", "JavaScript"],
+        image: "assets/media/ledoyenpreview.png",
+        link: "https://youtu.be/37AHNnXgyiQ",
+        cta: "See Preview",
+        accent: "#f97316",
+    },
+    {
+        title: "Rest API Article",
+        description:
+            "A Laravel REST API backend with CRUD operations, validation for creating and editing articles, and endpoints for detail, limited lists, and full article retrieval tested with Postman.",
+        tags: ["Laravel", "REST API"],
+        image: "assets/media/postmanpreview.png",
+        link: null,
+        cta: "Coming Soon",
+        accent: "#fb923c",
+    },
+    {
+        title: "Internship Project: Digital Asset",
+        description:
+            "A responsive internal admin page for BINUS University. It was used to upload files, manage templates, and share materials. During the internship, the team also created BeeOffice and Apps.",
+        tags: ["HTML", "CSS", "Bootstrap", "jQuery", "SQL Server"],
+        image: "assets/media/DAreview.png",
+        note: "The internship builds below were created during a 1 year placement at BINUS University.",
+        link: "https://drive.google.com/drive/folders/1wVDca3M_aMylGgaRyaMytzHEAtgbmoQp?usp=share_link",
+        cta: "See Preview",
+        accent: "#2563eb",
+    },
+    {
+        title: "Adrsvn (Old)",
+        description:
+            "The previous version of my personal website, where visitors could explore my profile, the stacks I use, and selected projects I had worked on.",
+        tags: ["HTML", "CSS", "jQuery", "Portfolio", "Old Version"],
+        imageLight: "assets/media/adrsvnpreview.png",
+        imageDark: "assets/media/adrsvndarkpreview.png",
+        link: "https://youtu.be/n2HAJDuwQgE",
+        cta: "See Preview",
+        accent: "#16c7a7",
+    },
     {
         title: "Todo List with Authentication",
         description:
@@ -134,97 +198,6 @@ const EARLIER_PROJECTS = [
         accent: "#64748b",
     },
     {
-        title: "StartUp Landing Page",
-        description:
-            "An interactive responsive landing page called StartUp. It explains the brand, services, pricing, and contact information in a single scrolling experience created with React.",
-        tags: ["React", "HTML", "CSS", "Tailwind"],
-        image: "assets/media/StartUpPreview.png",
-        link: "https://www.youtube.com/watch?v=CC1C_E9_U_U",
-        cta: "Preview",
-        accent: "#2f6df6",
-    },
-    {
-        title: "Rest API Article",
-        description:
-            "A Laravel REST API backend with CRUD operations, validation for creating and editing articles, and endpoints for detail, limited lists, and full article retrieval tested with Postman.",
-        tags: ["Laravel", "REST API"],
-        image: "assets/media/postmanpreview.png",
-        link: null,
-        cta: "Coming Soon",
-        accent: "#fb923c",
-    },
-    {
-        title: "Admin Dashboard Posts",
-        description:
-            "An admin page created using the CoreUI dashboard. It adds a dedicated Posts area with submenus for all posts, add new, preview, and edit post flows.",
-        tags: ["HTML", "CSS", "Bootstrap", "JavaScript", "28.11.2022"],
-        image: "assets/media/coreUI.png",
-        link: null,
-        cta: "Coming Soon",
-        accent: "#94a3b8",
-    },
-    {
-        title: "Ledoyen",
-        description:
-            "A responsive restaurant website where visitors can explore the brand, see featured cuisine, browse events, and book tables with email notifications for both the customer and admin.",
-        tags: ["HTML", "CSS", "PHP", "Bootstrap", "JavaScript"],
-        image: "assets/media/ledoyenpreview.png",
-        link: "https://youtu.be/37AHNnXgyiQ",
-        cta: "See Preview",
-        accent: "#f97316",
-    },
-    {
-        title: "Rekreasi",
-        description:
-            "A responsive travel landing page that highlights destinations, estimated costs, and summaries. The original build also included login and register flows connected to a backend for future reviews.",
-        tags: ["HTML", "CSS", "PHP", "Tailwind", "jQuery"],
-        image: "assets/media/rekreasipreview.png",
-        link: "https://youtu.be/E3eXU53NFEE",
-        cta: "See Preview",
-        accent: "#38bdf8",
-    },
-    {
-        title: "Bareng Bareng",
-        description:
-            "A marketplace with buyer, seller, and admin roles. Sellers can run interest checks before products move into group buy status, while the backend handles requests, role flow, and withdrawals.",
-        tags: ["HTML", "CSS", "Laravel", "Tailwind", "jQuery"],
-        image: "assets/media/barengpreview.png",
-        link: "https://youtu.be/RYjCuR-2iZ4",
-        cta: "See Preview",
-        accent: "#2563eb",
-    },
-    {
-        title: "Ovo.id Remake",
-        description:
-            "A responsive landing page remake inspired by Ovo.id. The goal was recreating the visual style from scratch while keeping small interactive touches intact.",
-        tags: ["HTML", "CSS", "Tailwind", "jQuery"],
-        image: "assets/media/ovoremakepreview.png",
-        link: "https://youtu.be/hMYHM_6zr5M",
-        cta: "See Preview",
-        accent: "#a855f7",
-    },
-    {
-        title: "Adrsvn (Old)",
-        description:
-            "The previous version of my personal website, where visitors could explore my profile, the stacks I use, and selected projects I had worked on.",
-        tags: ["HTML", "CSS", "jQuery", "Portfolio", "Old Version"],
-        imageLight: "assets/media/adrsvnpreview.png",
-        imageDark: "assets/media/adrsvndarkpreview.png",
-        link: "https://youtu.be/n2HAJDuwQgE",
-        cta: "See Preview",
-        accent: "#16c7a7",
-    },
-    {
-        title: "FoodCiper",
-        description:
-            "A recipe website that lets users search for meals and get ingredients plus cooking steps. The data is fetched from the Spoonacular API.",
-        tags: ["HTML", "CSS", "React"],
-        image: "assets/media/foodciperpreview.png",
-        link: "https://youtu.be/YjsvUoTjdHc",
-        cta: "See Preview",
-        accent: "#2563eb",
-    },
-    {
         title: "StyleUp",
         description:
             "A responsive landing page for an automotive styling brand. The site introduces the company, its services, and a showcase of car wrap or modification projects.",
@@ -233,17 +206,6 @@ const EARLIER_PROJECTS = [
         link: "https://youtu.be/uyDaOOK6WIA",
         cta: "See Preview",
         accent: "#ef4444",
-    },
-    {
-        title: "Internship Project: Digital Asset",
-        description:
-            "A responsive internal admin page for BINUS University. It was used to upload files, manage templates, and share materials. During the internship, the team also created BeeOffice and Apps.",
-        tags: ["HTML", "CSS", "Bootstrap", "jQuery", "SQL Server"],
-        image: "assets/media/DAreview.png",
-        note: "The internship builds below were created during a 1 year placement at BINUS University.",
-        link: "https://drive.google.com/drive/folders/1wVDca3M_aMylGgaRyaMytzHEAtgbmoQp?usp=share_link",
-        cta: "See Preview",
-        accent: "#2563eb",
     },
     {
         title: "Portfolio Landing Page",
@@ -256,6 +218,46 @@ const EARLIER_PROJECTS = [
         accent: "#2563eb",
     },
     {
+        title: "FoodCiper",
+        description:
+            "A recipe website that lets users search for meals and get ingredients plus cooking steps. The data is fetched from the Spoonacular API.",
+        tags: ["HTML", "CSS", "React"],
+        image: "assets/media/foodciperpreview.png",
+        link: "https://youtu.be/YjsvUoTjdHc",
+        cta: "See Preview",
+        accent: "#2563eb",
+    },
+    {
+        title: "StartUp Landing Page",
+        description:
+            "An interactive responsive landing page called StartUp. It explains the brand, services, pricing, and contact information in a single scrolling experience created with React.",
+        tags: ["React", "HTML", "CSS", "Tailwind"],
+        image: "assets/media/StartUpPreview.png",
+        link: "https://www.youtube.com/watch?v=CC1C_E9_U_U",
+        cta: "Preview",
+        accent: "#2f6df6",
+    },
+    {
+        title: "Admin Dashboard Posts",
+        description:
+            "An admin page created using the CoreUI dashboard. It adds a dedicated Posts area with submenus for all posts, add new, preview, and edit post flows.",
+        tags: ["HTML", "CSS", "Bootstrap", "JavaScript", "28.11.2022"],
+        image: "assets/media/coreUI.png",
+        link: null,
+        cta: "Coming Soon",
+        accent: "#94a3b8",
+    },
+    {
+        title: "Ovo.id Remake",
+        description:
+            "A responsive landing page remake inspired by Ovo.id. The goal was recreating the visual style from scratch while keeping small interactive touches intact.",
+        tags: ["HTML", "CSS", "Tailwind", "jQuery"],
+        image: "assets/media/ovoremakepreview.png",
+        link: "https://youtu.be/hMYHM_6zr5M",
+        cta: "See Preview",
+        accent: "#a855f7",
+    },
+    {
         title: "Plant Shop",
         description:
             "A clean landing page focused on featured plants, supporting descriptions, and pricing. The goal was a polished storefront experience with a soft visual style.",
@@ -263,16 +265,6 @@ const EARLIER_PROJECTS = [
         image: "assets/media/plantshoppreview.png",
         link: "https://youtu.be/qOKQv8R5_Ss",
         cta: "See Preview",
-        accent: "#22c55e",
-    },
-    {
-        title: "Catpure",
-        description:
-            "A responsive landing page concept that introduces the Catpure brand and what it offers. The project was used to practice React-based page composition.",
-        tags: ["HTML", "CSS", "Tailwind", "React"],
-        image: "assets/media/catpurepreview.png",
-        link: null,
-        cta: "Coming Soon",
         accent: "#22c55e",
     },
     {
@@ -284,6 +276,16 @@ const EARLIER_PROJECTS = [
         link: "https://youtu.be/cYLYC-p1EIw",
         cta: "See Preview",
         accent: "#64748b",
+    },
+    {
+        title: "Catpure",
+        description:
+            "A responsive landing page concept that introduces the Catpure brand and what it offers. The project was used to practice React-based page composition.",
+        tags: ["HTML", "CSS", "Tailwind", "React"],
+        image: "assets/media/catpurepreview.png",
+        link: null,
+        cta: "Coming Soon",
+        accent: "#22c55e",
     },
     {
         title: "To do List",
@@ -370,7 +372,7 @@ function renderProjectCards(projects, theme) {
             : `<span class="button button--small button--ghost button--disabled">${project.cta}</span>`;
 
         return `
-            <article class="project-card" style="--card-accent: ${project.accent};">
+            <article class="project-card" style="--card-accent: ${project.accent}; --project-image-fit: ${project.imageFit || "cover"};">
                 <div class="project-card__media">
                     <img src="${getProjectImage(project, theme)}" alt="${project.title} preview" loading="lazy" />
                 </div>
