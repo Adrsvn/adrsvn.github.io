@@ -83,6 +83,19 @@ const FEATURED_PROJECTS = [
             "Online reservation flow connected to the database with email notifications for follow-up.",
         ],
         highlightMeta: "Developed in 2026",
+        gallery: [
+            "assets/media/ssklinikcompro2.png",
+            "assets/media/ssklinikcompro3.png",
+            "assets/media/ssklinikcompro4.png",
+            "assets/media/ssklinikcompro5.png",
+            "assets/media/ssklinikcompro6.png",
+            "assets/media/ssklinikcompro7.png",
+            "assets/media/ssklinikcompro8.png",
+            "assets/media/ssklinikcompro9.png",
+            "assets/media/ssklinikcompro10.png",
+            "assets/media/ssklinikcompro11.png",
+            "assets/media/ssklinikcompro12.png",
+        ],
         image: "assets/media/ssklinikcompro.png",
         imageFit: "fill",
         link: null,
@@ -108,6 +121,13 @@ const FEATURED_PROJECTS = [
             "Tailwind Plus-based admin UI with HTMX-powered navigation for a smoother CMS workflow.",
         ],
         highlightMeta: "Developed in 2026",
+        gallery: [
+            "assets/media/ssklinikcms.png",
+            "assets/media/klinikcms2.png",
+            "assets/media/klinikcms3.png",
+            "assets/media/klinikcms4.png",
+            "assets/media/klinikcms5.png",
+        ],
         image: "assets/media/ssklinikcms.png",
         imageFit: "fill",
         link: null,
@@ -315,6 +335,94 @@ function getProjectImage(project, theme) {
     return project.image || project.imageLight || project.imageDark;
 }
 
+function getProjectGallery(project, theme) {
+    if (Array.isArray(project.gallery) && project.gallery.length) {
+        return project.gallery;
+    }
+
+    return [getProjectImage(project, theme)];
+}
+
+function renderProjectMedia(project, theme) {
+    const gallery = getProjectGallery(project, theme);
+
+    if (gallery.length === 1) {
+        return `
+            <div class="project-card__media">
+                <img src="${gallery[0]}" alt="${project.title} preview" loading="lazy" />
+            </div>
+        `;
+    }
+
+    const slides = $.map(gallery, (image, imageIndex) => `
+        <div class="project-card__media-slide">
+            <img
+                src="${image}"
+                alt="${project.title} screenshot ${imageIndex + 1}"
+                loading="${imageIndex === 0 ? "eager" : "lazy"}"
+            />
+        </div>
+    `).join("");
+
+    return `
+        <div class="project-card__media">
+            <div
+                class="project-card__media-carousel"
+                data-slide-index="0"
+                data-slide-count="${gallery.length}"
+                aria-label="${project.title} screenshots"
+            >
+                <div class="project-card__media-track">
+                    ${slides}
+                </div>
+                <span class="project-card__media-badge">${gallery.length} screens</span>
+                <div class="project-card__media-controls">
+                    <span class="project-card__media-counter" aria-live="polite">
+                        <span class="project-card__media-counter-current">1</span> / ${gallery.length}
+                    </span>
+                    <div class="project-card__media-nav-group">
+                        <button
+                            class="project-card__media-nav"
+                            type="button"
+                            data-direction="prev"
+                            aria-label="Show previous screenshot"
+                        >
+                            <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+                        </button>
+                        <button
+                            class="project-card__media-nav"
+                            type="button"
+                            data-direction="next"
+                            aria-label="Show next screenshot"
+                        >
+                            <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+function updateProjectCarousel($carousel, nextIndex) {
+    const totalSlides = Number($carousel.attr("data-slide-count")) || 1;
+
+    if (totalSlides <= 1) {
+        return;
+    }
+
+    const normalizedIndex = (nextIndex + totalSlides) % totalSlides;
+
+    $carousel.attr("data-slide-index", normalizedIndex);
+    $carousel.find(".project-card__media-track").css(
+        "transform",
+        `translateX(-${normalizedIndex * 100}%)`
+    );
+    $carousel.find(".project-card__media-counter-current").text(
+        normalizedIndex + 1
+    );
+}
+
 function renderSkills() {
     const markup = $.map(SKILLS, (skill) => {
         const media = skill.image
@@ -373,9 +481,7 @@ function renderProjectCards(projects, theme) {
 
         return `
             <article class="project-card" style="--card-accent: ${project.accent}; --project-image-fit: ${project.imageFit || "cover"};">
-                <div class="project-card__media">
-                    <img src="${getProjectImage(project, theme)}" alt="${project.title} preview" loading="lazy" />
-                </div>
+                ${renderProjectMedia(project, theme)}
                 <div class="project-card__body">
                     <div class="tag-list">${tags}</div>
                     <h3 class="project-card__title">${project.title}</h3>
@@ -466,6 +572,14 @@ $(function onReady() {
     });
 
     $(".mobile-scrim, .mobile-nav__link").on("click", closeMenu);
+    $(document).on("click", ".project-card__media-nav", function onCarouselNav() {
+        const $button = $(this);
+        const $carousel = $button.closest(".project-card__media-carousel");
+        const currentIndex = Number($carousel.attr("data-slide-index")) || 0;
+        const direction = $button.data("direction") === "next" ? 1 : -1;
+
+        updateProjectCarousel($carousel, currentIndex + direction);
+    });
     $('.site-nav__link[href^="#"], .mobile-nav__link[href^="#"]').on(
         "click",
         updateActiveLinks
