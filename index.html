@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>adrsvn | Adrian Putra Portfolio</title>
+    <meta
+        name="description"
+        content="Portfolio website of Adrian Putra, a fullstack web developer focused on modern responsive websites and thoughtful UI."
+    />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap"
+        rel="stylesheet"
+    />
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+    <div class="page-shell">
+        <header class="site-header">
+            <a class="brand" href="#home" aria-label="adrsvn home">
+                <span class="brand-mark">a</span>
+                <span class="brand-name">adrsvn</span>
+            </a>
+
+            <nav class="site-nav desktop-nav" aria-label="Primary navigation">
+                <a class="site-nav__link is-active" href="#home">Home</a>
+                <a class="site-nav__link" href="#expertise">What I Do</a>
+                <a class="site-nav__link" href="#experience">Experience</a>
+                <a class="site-nav__link" href="#skill">Skills</a>
+                <a class="site-nav__link" href="#project">Projects</a>
+                <a class="site-nav__link" href="#contact">Contact</a>
+            </nav>
+
+            <button
+                class="mobile-toggle"
+                type="button"
+                aria-expanded="false"
+                aria-controls="mobileMenu"
+                aria-label="Toggle navigation"
+            >
+                <span></span>
+                <span></span>
+            </button>
+        </header>
+
+        <nav class="mobile-nav" id="mobileMenu" aria-label="Mobile navigation">
+            <a class="mobile-nav__link is-active" href="#home">Home</a>
+            <a class="mobile-nav__link" href="#expertise">What I Do</a>
+            <a class="mobile-nav__link" href="#experience">Experience</a>
+            <a class="mobile-nav__link" href="#skill">Skills</a>
+            <a class="mobile-nav__link" href="#project">Projects</a>
+            <a class="mobile-nav__link" href="#contact">Contact</a>
+        </nav>
+
+        <div class="mobile-scrim" aria-hidden="true"></div>
+
+        <aside class="social-rail" aria-label="Social links">
+            <p>Contact Me</p>
+            <a
+                href="https://www.instagram.com/adrian_sevenn/"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Instagram"
+            >
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a
+                href="https://www.linkedin.com/in/adrian-putra-9366861b8/"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="LinkedIn"
+            >
+                <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+            <a
+                href="https://wa.me/6285351748536"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="WhatsApp"
+            >
+                <i class="fa-brands fa-whatsapp"></i>
+            </a>
+        </aside>
+
+        <main>
+            <section class="section hero" id="home">
+                <div class="hero__content">
+                    <p class="eyebrow">Adrian Putra</p>
+                    <h1 class="hero__title">Fullstack developer building clean, responsive web experiences.</h1>
+                    <p class="hero__role">
+                        Focused on <span id="typed-role">Website Developer</span>
+                    </p>
+                    <p class="hero__text">
+                        I'm a <span>fullstack web developer</span> and BINUS
+                        University Computer Science graduate who enjoys turning
+                        ideas into <span>responsive websites</span> with clean
+                        visuals and practical implementation.
+                    </p>
+                    <p class="hero__text hero__text--sub">
+                        I'm currently working at <span>Orang Tua Group</span>.
+                        My hobbies are playing games,
+                        <span class="muted-strike">overthinking</span> making modern websites, and saving more online course/tutorial resources than
+                        I'll probably ever watch.
+                    </p>
+
+                    <div class="hero__actions">
+                        <a
+                            class="button button--primary"
+                            href="assets/files/resume-adrian-putra.pdf"
+                            download="Adrian-Putra-CV.pdf"
+                        >
+                            Download Resume
+                        </a>
+                        <a class="button button--ghost" href="#project">
+                            See Projects
+                        </a>
+                    </div>
+
+                    <div class="hero__meta">
+                        <article class="stat-card">
+                            <strong>3+ years</strong>
+                            <span>professional web development experience</span>
+                        </article>
+                        <article class="stat-card">
+                            <strong>Fullstack Dev</strong>
+                            <span>frontend, backend, database, and implementation</span>
+                        </article>
+                        <article class="stat-card">
+                            <strong>Adaptable Stack</strong>
+                            <span>Laravel, C#, SQL Server, and project-specific tools</span>
+                        </article>
+                    </div>
+                </div>
+
+                <div class="hero__visual">
+                    <article class="hero-panel">
+                        <p class="hero-panel__label">Current Focus</p>
+                        <h2>Currently working at Orang Tua Group.</h2>
+                        <p>
+                            I currently work at Orang Tua Group, handling
+                            fullstack projects, managing parallel workstreams,
+                            and adapting across different stacks depending on
+                            what the project needs.
+                        </p>
+
+                        <ul class="hero-panel__list">
+                            <li>Comfortable handling end-to-end fullstack work</li>
+                            <li>Able to manage multiple parallel projects</li>
+                            <li>Adapt quickly across Laravel, ASP.NET, and related tools</li>
+                            <li>Understand user requirements and real problems before building the project</li>
+                        </ul>
+
+                        <a class="hero-panel__link" href="#expertise">
+                            See what I can do
+                        </a>
+                    </article>
+                </div>
+
+                <a class="scroll-cue" href="#expertise" aria-label="Scroll to What I Do section">
+                    <span class="scroll-cue__label">Scroll Down</span>
+                    <span class="scroll-cue__icon" aria-hidden="true"></span>
+                </a>
+            </section>
+
+            <section class="section section--expertise" id="expertise">
+                <div class="section-heading section-heading--left">
+                    <p class="eyebrow">What I Do</p>
+                    <h2>I work as a fullstack developer, with Laravel as my main stack.</h2>
+                    <p class="section-copy">
+                        Over the last 3+ years, I've worked on fullstack web
+                        development with a practical mindset: build what the
+                        project needs, keep it maintainable, and make sure it is
+                        usable for the people behind it.
+                    </p>
+                </div>
+
+                <div class="expertise-layout">
+                    <article class="expertise-panel-block">
+                        <p class="expertise-panel-block__label">Problems I've Solved</p>
+                        <div class="expertise-list">
+                            <article class="expertise-item">
+                                <div class="expertise-item__icon">
+                                    <i class="fa-solid fa-window-maximize"></i>
+                                </div>
+                                <div>
+                                    <h3>Web apps that need both clean UI and reliable backend flow</h3>
+                                    <p>
+                                        Built features where interface quality,
+                                        form handling, validation, and backend
+                                        logic all need to stay connected smoothly.
+                                    </p>
+                                </div>
+                            </article>
+                            <article class="expertise-item">
+                                <div class="expertise-item__icon">
+                                    <i class="fa-solid fa-folder-tree"></i>
+                                </div>
+                                <div>
+                                    <h3>Attachment-heavy or data-driven features that still need to stay functional</h3>
+                                    <p>
+                                        Worked on upload flows, structured forms,
+                                        and features that need to stay organized,
+                                        functional, and easy to manage.
+                                    </p>
+                                </div>
+                            </article>
+                            <article class="expertise-item">
+                                <div class="expertise-item__icon">
+                                    <i class="fa-solid fa-screwdriver-wrench"></i>
+                                </div>
+                                <div>
+                                    <h3>Paper-based or manual processes that need a web-based workflow</h3>
+                                    <p>
+                                        Helped move repetitive paper-based
+                                        processes into web systems that are
+                                        easier to submit, track, and manage
+                                        without relying on manual handling.
+                                    </p>
+                                </div>
+                            </article>
+                        </div>
+                    </article>
+
+                    <article class="expertise-panel-block">
+                        <p class="expertise-panel-block__label">What I Can Do</p>
+                        <div class="capability-grid">
+                            <article class="capability-card">
+                                <h3>Fullstack development</h3>
+                                <p>
+                                    Build end-to-end web features from database
+                                    structure and backend logic to frontend
+                                    implementation.
+                                </p>
+                            </article>
+                            <article class="capability-card">
+                                <h3>Adapting to various programming languages and trends</h3>
+                                <p>
+                                    Work comfortably across Laravel, C#, SQL
+                                    Server, and other tools depending on what the
+                                    project needs.
+                                </p>
+                            </article>
+                            <article class="capability-card">
+                                <h3>Collaborating with users, clients, and teams</h3>
+                                <p>
+                                    Translate requirements into workable web
+                                    features through discussion, iteration, and
+                                    practical implementation.
+                                </p>
+                            </article>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section class="section section--experience" id="experience">
+                <div class="section-heading section-heading--left">
+                    <p class="eyebrow">Experience</p>
+                    <h2>Hands-on experience from internship to current full-time work.</h2>
+                    <p class="section-copy">
+                        A short timeline of the roles that shaped how I work as
+                        a fullstack developer today.
+                    </p>
+                </div>
+
+                <div class="experience-list">
+                    <article class="experience-card experience-card--current">
+                        <div class="experience-card__top">
+                            <div>
+                                <p class="experience-card__period">02/2023 - Present</p>
+                                <h3>IT Developer</h3>
+                                <p class="experience-card__company">Orang Tua Group, Indonesia</p>
+                                <p class="experience-card__stack">
+                                    Working across PHP, Laravel, SQL Server, MySQL, ASP.NET, C#, and Tailwind Plus depending on project needs.
+                                </p>
+                            </div>
+                            <span class="experience-card__badge">Current</span>
+                        </div>
+                        <ul class="experience-points">
+                            <li>Built and improved web applications and websites, from new features to updates on existing platforms.</li>
+                            <li>Handled fullstack work across multiple projects while adapting the stack to what each business case needed.</li>
+                            <li>Worked closely with users to understand requirements and translate them into practical, usable solutions.</li>
+                        </ul>
+                    </article>
+
+                    <article class="experience-card">
+                        <div class="experience-card__top">
+                            <div>
+                                <p class="experience-card__period">02/2021 - 02/2022</p>
+                                <h3>Programmer / Web Developer Intern</h3>
+                                <p class="experience-card__company">BINUS Marketing, Jakarta</p>
+                                <p class="experience-card__stack">
+                                    Built with PHP, SQL Server, and Tailwind while learning how to deliver clean and functional web pages.
+                                </p>
+                            </div>
+                            <span class="experience-card__badge">Internship</span>
+                        </div>
+                        <ul class="experience-points">
+                            <li>Developed websites with a responsive frontend and a functional backend for day-to-day business needs.</li>
+                            <li>Improved functionality and performance through validation, testing, and iterative fixes.</li>
+                            <li>Worked with daily deadlines and task tracking through Trello in a fast-moving team environment.</li>
+                        </ul>
+                    </article>
+                </div>
+            </section>
+
+            <section class="section section--skills" id="skill">
+                <div class="section-heading">
+                    <p class="eyebrow">Skills</p>
+                    <h2>Tools and stacks I use to build web experiences</h2>
+                    <p class="section-copy">
+                        A mix of tools I have used across landing pages, company
+                        profiles, admin dashboards, and full-stack web projects.
+                    </p>
+                </div>
+
+                <div class="skill-grid" id="skills-grid"></div>
+            </section>
+
+            <section class="section section--projects" id="project">
+                <div class="section-heading">
+                    <p class="eyebrow">Projects</p>
+                    <h2>Featured Laravel work first, earlier projects kept as archive below.</h2>
+                    <p class="section-copy">
+                        I put my more recent Laravel fullstack work up front,
+                        then kept earlier portfolio pieces below as supporting
+                        archive from my 2021 to 2022 development years.
+                    </p>
+                </div>
+
+                <div class="project-groups">
+                    <article class="project-group">
+                        <div class="project-group__intro">
+                            <p class="project-group__label">Featured Laravel Projects</p>
+                            <h3>Klinik Puri Medika</h3>
+                            <p>
+                                Two connected Laravel-based builds that better
+                                represent the kind of fullstack work I want to
+                                highlight when applying: the public clinic
+                                website and its internal CMS.
+                            </p>
+                        </div>
+
+                        <div class="projects-grid" id="featured-projects-grid"></div>
+                    </article>
+
+                    <article class="project-group project-group--archive">
+                        <div class="project-group__intro">
+                            <p class="project-group__label">Earlier Projects</p>
+                            <h3>Selected earlier work from 2021 to 2022</h3>
+                            <p>
+                                This archive keeps older landing pages,
+                                experiments, and learning builds that still show
+                                my progression across frontend and fullstack
+                                development.
+                            </p>
+                        </div>
+
+                        <div class="projects-grid" id="archive-projects-grid"></div>
+                    </article>
+                </div>
+            </section>
+
+            <section class="section section--contact" id="contact">
+                <article class="contact-card">
+                    <p class="eyebrow eyebrow--light">Contact</p>
+                    <h2>Let's Create Yours!</h2>
+                    <p class="contact-card__copy">
+                        If you want to collaborate on a landing page, company
+                        profile, admin dashboard, or personal website, just
+                        reach out through one of the channels below.
+                    </p>
+
+                    <div class="contact-links">
+                        <a
+                            class="contact-link"
+                            href="https://www.facebook.com/adrian.putra.14224/"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            <i class="fa-brands fa-facebook-f"></i>
+                            <span>Facebook</span>
+                        </a>
+                        <a
+                            class="contact-link"
+                            href="mailto:adriansvn0@gmail.com"
+                        >
+                            <i class="fa-solid fa-envelope"></i>
+                            <span>Email</span>
+                        </a>
+                        <a
+                            class="contact-link"
+                            href="https://www.linkedin.com/in/adrian-putra-9366861b8/"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            <i class="fa-brands fa-linkedin-in"></i>
+                            <span>LinkedIn</span>
+                        </a>
+                        <a
+                            class="contact-link"
+                            href="https://www.instagram.com/adrian_sevenn/"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            <i class="fa-brands fa-instagram"></i>
+                            <span>Instagram</span>
+                        </a>
+                        <a
+                            class="contact-link"
+                            href="https://wa.me/6285351748536"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            <i class="fa-brands fa-whatsapp"></i>
+                            <span>WhatsApp</span>
+                        </a>
+                    </div>
+
+                    <div class="contact-footer">
+                        <span>&copy; <span id="current-year"></span> Adrian Putra</span>
+                        <a href="mailto:adriansvn0@gmail.com">adriansvn0@gmail.com</a>
+                    </div>
+                </article>
+            </section>
+        </main>
+
+        <button
+            class="theme-toggle"
+            type="button"
+            aria-pressed="false"
+            aria-label="Toggle theme"
+        >
+            <span class="theme-toggle__icon">
+                <i class="fa-solid fa-moon"></i>
+            </span>
+            <span class="theme-toggle__text">Dark mode</span>
+        </button>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

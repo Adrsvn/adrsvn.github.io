@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="adrsvn favicon">
+  <defs>
+    <linearGradient id="g" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#2f6df6" />
+      <stop offset="100%" stop-color="#18c8a6" />
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="20" fill="#0f1f36" />
+  <circle cx="32" cy="32" r="24" fill="url(#g)" />
+  <path
+    d="M37.9 41.7h-3.8l-1.6-4.6h-8.2l-1.6 4.6H19l7.7-20.4H30l7.9 20.4zm-6.4-7.4-3-8.4-3 8.4h6z"
+    fill="#fff"
+  />
+</svg>
