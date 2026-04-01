@@ -82,6 +82,7 @@ const FEATURED_PROJECTS = [
             "SEO foundation with article metadata, canonical tags, robots directives, and sitemap support.",
             "Online reservation flow connected to the database with email notifications for follow-up.",
         ],
+        highlightMeta: "Developed in 2026",
         image: "assets/media/ssklinikcompro.png",
         link: null,
         cta: "Preview Soon",
@@ -105,6 +106,7 @@ const FEATURED_PROJECTS = [
             "Credential login protected with Cloudflare Turnstile and role-based access for Admin or Editor.",
             "Tailwind Plus-based admin UI with HTMX-powered navigation for a smoother CMS workflow.",
         ],
+        highlightMeta: "Developed in 2026",
         image: "assets/media/ssklinikcms.png",
         link: null,
         cta: "Preview Soon",
@@ -341,7 +343,12 @@ function renderProjectCards(projects, theme) {
         const highlights = project.highlights
             ? `
                 <div class="project-card__highlights">
-                    <p class="project-card__highlights-label">Highlights</p>
+                    <div class="project-card__highlights-head">
+                        <p class="project-card__highlights-label">Highlights</p>
+                        ${project.highlightMeta
+                            ? `<span class="project-card__highlights-meta">${project.highlightMeta}</span>`
+                            : ""}
+                    </div>
                     <ul class="project-card__highlights-list">
                         ${$.map(project.highlights, (item) => `<li>${item}</li>`)
                             .join("")}
