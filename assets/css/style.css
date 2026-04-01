@@ -1381,10 +1381,24 @@ body.menu-open .mobile-scrim {
     }
 
     .theme-toggle {
-        left: 12px;
+        left: auto;
         right: 12px;
-        bottom: 12px;
+        bottom: 14px;
+        width: 3.15rem;
+        height: 3.15rem;
+        padding: 0;
+        gap: 0;
         justify-content: center;
+        border-radius: 18px;
+    }
+
+    .theme-toggle__icon {
+        width: 1.9rem;
+        height: 1.9rem;
+    }
+
+    .theme-toggle__text {
+        display: none;
     }
 
     .contact-footer {
